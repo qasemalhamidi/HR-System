@@ -1,0 +1,13 @@
+{
+  "SIDEBAR": {
+    "TITLE": "نظام الموارد البشرية",
+    "DASHBOARD": "لوحة التحكم",
+    "EMPLOYEES": "الموظفون",
+    "DEPARTMENTS": "الأقسام",
+    "ATTENDANCE": "الحضور والانصراف",
+    "LEAVES": "الإجازات",
+    "PAYROLL": "الرواتب",
+    "SETTINGS": "الإعدادات",
+    "LOGOUT": "تسجيل الخروج"
+  }
+}

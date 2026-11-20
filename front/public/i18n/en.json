@@ -1,0 +1,13 @@
+{
+  "SIDEBAR": {
+    "TITLE": "HR Management System",
+    "DASHBOARD": "Dashboard",
+    "EMPLOYEES": "Employees",
+    "DEPARTMENTS": "Departments",
+    "ATTENDANCE": "Attendance",
+    "LEAVES": "Leaves",
+    "PAYROLL": "Payroll",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Logout"
+  }
+}
