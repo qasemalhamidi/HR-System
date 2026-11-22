@@ -1,25 +1,32 @@
-
 import { Service, signal } from '@angular/core';
 
 export type UserRole = 'HR' | 'Employee';
 
+const STORAGE_KEY = 'app-role';
+
 @Service()
 export class RoleService {
 
-  private role = signal<UserRole>('HR');
+  private role = signal<UserRole>(this.load());
 
-  // قراءة الدور الحالي
   currentRole = this.role.asReadonly();
 
-  // تغيير الدور
   setRole(role: UserRole): void {
     this.role.set(role);
+    try {
+      localStorage.setItem(STORAGE_KEY, role);
+    } catch { /* ignore */ }
   }
 
-  // تبديل الدور
   toggleRole(): void {
-    this.role.update(current =>
-      current === 'HR' ? 'Employee' : 'HR'
-    );
+    this.setRole(this.role() === 'HR' ? 'Employee' : 'HR');
+  }
+
+  private load(): UserRole {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === 'Employee' ? 'Employee' : 'HR';
+    } catch {
+      return 'HR';
+    }
   }
 }

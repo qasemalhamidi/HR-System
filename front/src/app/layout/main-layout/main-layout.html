@@ -1,1 +1,21 @@
-<p>main-layout works!</p>
+<div class="app-shell">
+
+  <app-navbar />
+
+  <div class="app-body">
+
+    <app-sidebar />
+
+    <main class="content-area">
+      <div class="container-fluid p-3 p-lg-4">
+        <router-outlet />
+      </div>
+    </main>
+
+  </div>
+
+  @if (sidebarOpen()) {
+    <div class="sidebar-backdrop" (click)="closeSidebar()"></div>
+  }
+
+</div>

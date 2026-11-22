@@ -1,17 +1,22 @@
 {
-  
-  "APP": {
-    "NAME": "HR Management System"
-  }
-,
+  "APP": { "NAME": "HR Management System" },
   "SIDEBAR": {
-    "TITLE": "HR Management System",
+    "TITLE": "Human Resources",
     "DASHBOARD": "Dashboard",
     "EMPLOYEES": "Employees",
     "DEPARTMENTS": "Departments",
     "ATTENDANCE": "Attendance",
     "LEAVES": "Leaves",
     "PAYROLL": "Payroll",
-    "LOGOUT": "Logout"
+    "MY_PROFILE": "My Profile",
+    "MY_PAYSLIP": "My Payslip"
+  },
+  "ROLE": {
+    "HR": "HR",
+    "Employee": "Employee"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "WELCOME": "Welcome to the Human Resources Management System"
   }
 }

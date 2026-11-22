@@ -1,9 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Navbar } from '../navbar/navbar';
+import { Sidebar } from '../sidebar/sidebar';
+import { LayoutService } from '../../core/services/layout';
 
 @Component({
-  imports: [],
   selector: 'app-main-layout',
-  styleUrl: './main-layout.css',
+  imports: [Navbar, Sidebar, RouterOutlet],
   templateUrl: './main-layout.html',
+  styleUrl: './main-layout.css',
 })
-export class MainLayout {}
+export class MainLayout {
+  private layout = inject(LayoutService);
+
+  sidebarOpen = this.layout.sidebarOpen;
+
+  closeSidebar(): void {
+    this.layout.closeSidebar();
+  }
+}
