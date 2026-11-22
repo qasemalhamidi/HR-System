@@ -8,14 +8,12 @@ const STORAGE_KEY = 'app-role';
 export class RoleService {
 
   private role = signal<UserRole>(this.load());
-
   currentRole = this.role.asReadonly();
-
   setRole(role: UserRole): void {
     this.role.set(role);
     try {
       localStorage.setItem(STORAGE_KEY, role);
-    } catch { /* ignore */ }
+    } catch {  }
   }
 
   toggleRole(): void {

@@ -1,1 +1,64 @@
 <h2>{{ 'SIDEBAR.LEAVES' | translate }}</h2>
+
+<div class="container mt-4">
+
+  <h2 class="mb-4">Employees</h2>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Employee Number</th>
+          <th>Arabic Name</th>
+          <th>English Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Department ID</th>
+          <th>Job Title ID</th>
+          <th>Hire Date</th>
+          <th>Salary</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (emp of employees; track emp.id) {
+          <tr>
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.empNumber }}</td>
+            <td>{{ emp.fNameAr }} {{ emp.lNameAr }}</td>
+            <td>{{ emp.fNameEn }} {{ emp.lNameEn }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.phone }}</td>
+            <td>{{ emp.deptId }}</td>
+            <td>{{ emp.jobTitleId }}</td>
+            <td>{{ emp.hireDate }}</td>
+            <td>{{ emp.salary }}</td>
+            <td>
+              <span
+                class="badge"
+                [class.bg-success]="emp.status === 'Active'"
+                [class.bg-danger]="emp.status === 'Inactive'">
+                {{ emp.status }}
+              </span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="11" class="text-center">
+              No employees found
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+
+  <p class="mt-3">
+    Total Employees: <strong>{{ total }}</strong>
+  </p>
+
+</div>

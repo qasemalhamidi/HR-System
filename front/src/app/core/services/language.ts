@@ -10,16 +10,10 @@ export type Language = 'ar' | 'en';
 export class LanguageService {
 
   private readonly translate = inject(TranslateService);
-
   private readonly document = inject(DOCUMENT);
-
   private readonly platformId = inject(PLATFORM_ID);
-
   private readonly storageKey = 'app-language';
-
-  private readonly isBrowser = isPlatformBrowser(
-    this.platformId
-  );
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   // Reactive language state
   readonly currentLanguage = signal<Language>('ar');

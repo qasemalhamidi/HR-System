@@ -8,11 +8,7 @@
 
     @for (item of visibleItems(); track item.route) {
       <li class="nav-item">
-        <a
-          class="nav-link"
-          [routerLink]="item.route"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+        <a class="nav-link" [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
           (click)="closeSidebar()">
 
           <i class="bi" [class]="item.icon"></i>
