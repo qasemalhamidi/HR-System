@@ -2,21 +2,34 @@
 
   <span class="navbar-brand">
     <i class="bi bi-buildings"></i>
-    HR System
+    {{ 'APP.NAME' | translate }}
   </span>
 
-  <div class="d-flex gap-2 ms-auto">
+  <div class="d-flex align-items-center gap-2">
 
     <button
-      class="btn btn-outline-primary btn-sm"
+      class="btn btn-sm"
+      [class.btn-primary]="currentLanguage() === 'ar'"
+      [class.btn-outline-primary]="currentLanguage() !== 'ar'"
       (click)="changeLanguage('ar')">
       العربية
     </button>
 
     <button
-      class="btn btn-outline-secondary btn-sm"
+      class="btn btn-sm"
+      [class.btn-primary]="currentLanguage() === 'en'"
+      [class.btn-outline-primary]="currentLanguage() !== 'en'"
       (click)="changeLanguage('en')">
       English
+    </button>
+
+    <button
+      class="btn btn-outline-secondary btn-sm"
+      (click)="changeRole()">
+
+      {{ currentRole() }}
+
+      <i class="bi bi-arrow-left-right"></i>
     </button>
 
   </div>

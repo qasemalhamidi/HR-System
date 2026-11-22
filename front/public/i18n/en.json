@@ -1,4 +1,9 @@
 {
+  
+  "APP": {
+    "NAME": "HR Management System"
+  }
+,
   "SIDEBAR": {
     "TITLE": "HR Management System",
     "DASHBOARD": "Dashboard",
@@ -7,7 +12,6 @@
     "ATTENDANCE": "Attendance",
     "LEAVES": "Leaves",
     "PAYROLL": "Payroll",
-    "SETTINGS": "Settings",
     "LOGOUT": "Logout"
   }
 }

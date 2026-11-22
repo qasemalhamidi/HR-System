@@ -1,46 +1,32 @@
-<div class="sidebar">
 
-  <h4>
+<aside class="sidebar">
+
+  <h5 class="sidebar-title">
     {{ 'SIDEBAR.TITLE' | translate }}
-  </h4>
+  </h5>
 
-  <ul class="list-unstyled">
+  <ul class="nav flex-column">
 
-    <li>
-      <i class="bi bi-house"></i>
-      {{ 'SIDEBAR.DASHBOARD' | translate }}
-    </li>
+    @for (item of visibleItems; track item.route) {
 
-    <li>
-      <i class="bi bi-people"></i>
-      {{ 'SIDEBAR.EMPLOYEES' | translate }}
-    </li>
+      <li class="nav-item">
 
-    <li>
-      <i class="bi bi-building"></i>
-      {{ 'SIDEBAR.DEPARTMENTS' | translate }}
-    </li>
+        <a
+          class="nav-link"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
 
-    <li>
-      <i class="bi bi-calendar-check"></i>
-      {{ 'SIDEBAR.ATTENDANCE' | translate }}
-    </li>
+          <i class="bi" [class]=" 'bi ' + item.icon"></i>
 
-    <li>
-      <i class="bi bi-calendar-event"></i>
-      {{ 'SIDEBAR.LEAVES' | translate }}
-    </li>
+          {{ item.labelKey | translate }}
 
-    <li>
-      <i class="bi bi-cash"></i>
-      {{ 'SIDEBAR.PAYROLL' | translate }}
-    </li>
+        </a>
 
-    <li>
-      <i class="bi bi-gear"></i>
-      {{ 'SIDEBAR.SETTINGS' | translate }}
-    </li>
+      </li>
+
+    }
 
   </ul>
 
-</div>
+</aside>

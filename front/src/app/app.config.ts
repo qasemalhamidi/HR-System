@@ -32,9 +32,9 @@ export const appConfig: ApplicationConfig = {
     }),
 
     provideAppInitializer(() => {
-      const languageService = inject(LanguageService);
-      languageService.initialize();
-    })
+        const languageService = inject(LanguageService);
+        return languageService.initialize();
+})
 
   ]
 };
