@@ -1,1 +1,24 @@
-<h2>{{ 'SIDEBAR.EMPLOYEES' | translate }}</h2>
+<h2 class="mb-3">{{ 'SIDEBAR.EMPLOYEES' | translate }}</h2>
+
+<app-data-table
+  [columns]="columns()"
+  [data]="employees()"
+  [loading]="loading()"
+  [total]="total()"
+  [page]="page()"
+  [pageSize]="pageSize"
+  (pageChange)="onPageChange($event)" />
+
+<ng-template #nameTpl let-row>
+  {{ lang() === 'ar'
+      ? row.fNameAr + ' ' + row.lNameAr
+      : row.fNameEn + ' ' + row.lNameEn }}
+</ng-template>
+
+
+
+<ng-template #statusTpl let-row>
+  <span class="badge"  [class.text-bg-success]="row.status === 'Active'"[class.text-bg-secondary]="row.status !== 'Active'">
+    {{ (row.status === 'Active' ? 'COMMON.ACTIVE' : 'COMMON.INACTIVE') | translate }}
+  </span>
+</ng-template>

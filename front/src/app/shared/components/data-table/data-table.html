@@ -1,0 +1,118 @@
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          @for (col of columns(); track col.key) {
+            <th>{{ col.headerKey | translate }}</th>
+          }
+          @if (actionsTemplate()) {
+            <th class="actions-col">{{ 'COMMON.ACTIONS' | translate }}</th>
+          }
+        </tr>
+      </thead>
+
+      <tbody>
+        @if (loading()) {
+          <tr>
+            <td [attr.colspan]="colspan()" class="p-0">
+              <div
+                class="bg-white d-flex align-items-center justify-content-center"
+                style="min-height: 180px"
+              >
+                <div class="text-center">
+                  <div
+                    class="spinner-border text-info mb-2"
+                    role="status"
+                    style="width: 2rem; height: 2rem"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+
+                  <div class="text-info fw-bold">HR system</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        } @else if (data().length === 0) {
+          <tr>
+            <td [attr.colspan]="colspan()" class="state-cell">
+              <i class="bi bi-inbox d-block fs-3 mb-1"></i>
+              {{ 'COMMON.NO_DATA' | translate }}
+            </td>
+          </tr>
+        } @else {
+          @for (row of data(); track $index) {
+            <tr>
+              @for (col of columns(); track col.key) {
+                <td>
+                  @if (col.cellTemplate) {
+                    <ng-container
+                      [ngTemplateOutlet]="col.cellTemplate"
+                      [ngTemplateOutletContext]="{ $implicit: row }"
+                    />
+                  } @else {
+                    {{ row[col.key] }}
+                  }
+                </td>
+              }
+
+              @if (actionsTemplate(); as actions) {
+                <td class="actions-col">
+                  <ng-container
+                    [ngTemplateOutlet]="actions"
+                    [ngTemplateOutletContext]="{ $implicit: row }"
+                  />
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (total() > 0) {
+    <div class="table-footer">
+      <small class="text-muted">
+        {{ 'TABLE.SHOWING' | translate: { from: from(), to: to(), total: total() } }}
+      </small>
+
+      <nav>
+        <ul class="pagination pagination-sm mb-0">
+          <li class="page-item" [class.disabled]="page() === 1">
+            <button
+              type="button"
+              class="page-link"
+              [disabled]="page() === 1"
+              [attr.aria-label]="'TABLE.PREVIOUS' | translate"
+              (click)="goTo(page() - 1)"
+            >
+              <i class="bi bi-chevron-left flip"></i>
+            </button>
+          </li>
+
+          @for (p of pages(); track p) {
+            <li class="page-item" [class.active]="p === page()">
+              <button type="button" class="page-link" (click)="goTo(p)">
+                {{ p }}
+              </button>
+            </li>
+          }
+
+          <li class="page-item" [class.disabled]="page() === totalPages()">
+            <button
+              type="button"
+              class="page-link"
+              [disabled]="page() === totalPages()"
+              [attr.aria-label]="'TABLE.NEXT' | translate"
+              (click)="goTo(page() + 1)"
+            >
+              <i class="bi bi-chevron-right flip"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  }
+</div>

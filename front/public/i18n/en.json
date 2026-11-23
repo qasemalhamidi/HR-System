@@ -18,5 +18,24 @@
   "DASHBOARD": {
     "TITLE": "Dashboard",
     "WELCOME": "Welcome to the Human Resources Management System"
-  }
+  },
+  "COMMON": {
+  "ACTIONS": "Actions",
+  "NO_DATA": "No data found",
+  "LOADING": "Loading...",
+  "ACTIVE": "Active",
+  "INACTIVE": "Inactive",
+  "DELETE": "Delete"
+},
+"TABLE": {
+  "PREVIOUS": "Previous",
+  "NEXT": "Next",
+  "SHOWING": "Showing {{from}} to {{to}} of {{total}}"
+},
+"EMPLOYEES": {
+  "NUMBER": "No.",
+  "NAME": "Name",
+  "EMAIL": "Email",
+  "STATUS": "Status"
+}
 }

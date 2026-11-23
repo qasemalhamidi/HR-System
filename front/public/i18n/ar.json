@@ -18,5 +18,24 @@
   "DASHBOARD": {
     "TITLE": "لوحة التحكم",
     "WELCOME": "مرحباً بك في نظام إدارة الموارد البشرية"
-  }
+  },
+  "COMMON": {
+  "ACTIONS": "الإجراءات",
+  "NO_DATA": "لا توجد بيانات",
+  "LOADING": "جاري التحميل...",
+  "ACTIVE": "نشط",
+  "INACTIVE": "غير نشط",
+  "DELETE": "حذف"
+},
+"TABLE": {
+  "PREVIOUS": "السابق",
+  "NEXT": "التالي",
+  "SHOWING": "عرض {{from}} إلى {{to}} من {{total}}"
+},
+"EMPLOYEES": {
+  "NUMBER": "الرقم",
+  "NAME": "الاسم",
+  "EMAIL": "البريد الإلكتروني",
+  "STATUS": "الحالة"
+}
 }

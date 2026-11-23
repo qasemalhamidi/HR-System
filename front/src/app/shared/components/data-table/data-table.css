@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+th {
+  background: var(--background-color);
+  color: var(--muted-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.state-cell {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--muted-color);
+}
+
+.actions-col {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.table-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+:host-context([dir='rtl']) .flip {
+  transform: scaleX(-1);
+}
